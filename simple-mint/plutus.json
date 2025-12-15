@@ -1,0 +1,104 @@
+{
+  "preamble": {
+    "title": "piotr/simple-mint",
+    "description": "Aiken contracts for project 'piotr/simple-mint'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.19+e525483"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "minting.hello_world.spend",
+      "datum": {
+        "title": "_datum",
+        "schema": {
+          "$ref": "#/definitions/minting~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/minting~1Redeemer"
+        }
+      },
+      "compiledCode": "58a001010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748008c01cdd500144c8cc896600266e1d2000300a375400d1323259800980800144cdc79bae300f300d37540109110d48656c6c6f2c20576f726c6421008b201c375c601c00260166ea801a2c8048c02c004c02cc030004c020dd50014590060c01c004c00cdd5003c52689b2b20021",
+      "hash": "95abaacf474a052f963d64d96f455c8844cda900ae7e04c13b6e8dac"
+    },
+    {
+      "title": "minting.hello_world.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "58a001010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748008c01cdd500144c8cc896600266e1d2000300a375400d1323259800980800144cdc79bae300f300d37540109110d48656c6c6f2c20576f726c6421008b201c375c601c00260166ea801a2c8048c02c004c02cc030004c020dd50014590060c01c004c00cdd5003c52689b2b20021",
+      "hash": "95abaacf474a052f963d64d96f455c8844cda900ae7e04c13b6e8dac"
+    },
+    {
+      "title": "minting.justMint.mint",
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "compiledCode": "585401010029800aba2aba1aab9eaab9dab9a4888896600264653001300600198031803800cc0180092225980099b8748000c01cdd500144c9289bae30093008375400516401830060013003375400d149a26cac8009",
+      "hash": "def68337867cb4f1f95b6b811fedbfcdd7780d10a95cc072077088ea"
+    },
+    {
+      "title": "minting.justMint.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "585401010029800aba2aba1aab9eaab9dab9a4888896600264653001300600198031803800cc0180092225980099b8748000c01cdd500144c9289bae30093008375400516401830060013003375400d149a26cac8009",
+      "hash": "def68337867cb4f1f95b6b811fedbfcdd7780d10a95cc072077088ea"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Data": {
+      "title": "Data",
+      "description": "Any Plutus data."
+    },
+    "aiken/crypto/VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "minting/Datum": {
+      "title": "Datum",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "$ref": "#/definitions/aiken~1crypto~1VerificationKeyHash"
+            }
+          ]
+        }
+      ]
+    },
+    "minting/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "title": "Redeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "msg",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

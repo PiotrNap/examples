@@ -1,0 +1,11 @@
+{
+  "name": "express-react-mesh-encryption",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix server i && npm --prefix client i",
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
